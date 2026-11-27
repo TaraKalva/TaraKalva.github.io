@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem('color-scheme') ?? 'light dark';
+    } catch {}
+  </script>
+  <title>Tara Bhuvaneswari Kalva | Data Analyst &amp; Applied ML Portfolio</title>
+  <meta name="description" content="Portfolio of Tara Bhuvaneswari Kalva — Data Analyst skilled in Python, R, SQL, Tableau, Power BI, statistical modeling, and AI-driven analytics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Ambient Parallax Aurora Backdrop -->
+  <div class="ambient-canvas" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--1"></div>
+    <div class="ambient-orb ambient-orb--2"></div>
+    <div class="ambient-orb ambient-orb--3"></div>
+  </div>
+
+  <!-- Mobile Navigation Drawer (native modal <dialog>) -->
+  <dialog class="Drawer" id="mobile-drawer" aria-label="Navigation menu">
+    <div class="Drawer-scroller">
+      <nav class="Drawer-sheet Drawer-nav" aria-label="Mobile">
+        <div class="Drawer-header">
+          <a href="#profile" class="sidebar-brand">
+            <span class="brand-dot" aria-hidden="true"></span>
+            <span>TARA</span>
+          </a>
+          <button type="button" id="drawer-close" class="icon-square-btn" aria-label="Close navigation menu" autofocus>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <ul>
+          <li><a href="#profile" class="nav-link active" data-nav-link aria-current="location">Profile</a></li>
+          <li><a href="#about" class="nav-link" data-nav-link>About</a></li>
+          <li><a href="#skills" class="nav-link" data-nav-link>Skills</a></li>
+          <li><a href="#projects" class="nav-link" data-nav-link>Projects</a></li>
+          <li><a href="#experience" class="nav-link" data-nav-link>Experience</a></li>
+          <li><a href="#education" class="nav-link" data-nav-link>Education</a></li>
+          <li><a href="#contact" class="nav-link" data-nav-link>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </dialog>
+
+  <div class="shell">
+    <!-- Left Sidebar matching uploaded wireframe -->
+    <aside class="sidebar">
+      <a href="#profile" class="sidebar-brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>TARA</span>
+      </a>
+
+      <nav class="sidebar-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#profile" class="nav-link active" data-nav-link aria-current="location">Profile</a></li>
+          <li><a href="#about" class="nav-link" data-nav-link>About</a></li>
+          <li><a href="#skills" class="nav-link" data-nav-link>Skills</a></li>
+          <li><a href="#projects" class="nav-link" data-nav-link>Projects</a></li>
+          <li><a href="#experience" class="nav-link" data-nav-link>Experience</a></li>
+          <li><a href="#education" class="nav-link" data-nav-link>Education</a></li>
+          <li><a href="#contact" class="nav-link" data-nav-link>Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-pill">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Worcester, MA</span>
+        </div>
+        <div class="sidebar-meta">
+          <span>M.S. IT · Clark University</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Main Content Canvas -->
+    <div class="main-stage">
+      <header class="stage-topbar">
+        <div class="mobile-bar-left">
+          <button
+            type="button"
+            id="drawer-open"
+            class="icon-square-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-drawer">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M4 7h16M4 12h16M4 17h16"/>
+            </svg>
+          </button>
+          <a href="#profile" class="sidebar-brand">
+            <span class="brand-dot" aria-hidden="true"></span>
+            <span>TARA</span>
+          </a>
+        </div>
+
+        <!-- Square Theme Toggle Button (top-right in sketch) -->
+        <button type="button" class="icon-square-btn theme-toggle" data-theme-toggle>
+          <span class="theme-state theme-state--to-dark">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/>
+            </svg>
+            <span class="visually-hidden">Switch to dark theme</span>
+          </span>
+          <span class="theme-state theme-state--to-light">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <span class="visually-hidden">Switch to light theme</span>
+          </span>
+        </button>
+      </header>
+
+      <main id="main-content" tabindex="-1">
+        <!-- ================================================================
+             1. PROFILE / HERO (Direct Match to Uploaded Sketch)
+             ================================================================ -->
+        <section id="profile" class="section-block hero">
+          <div class="section-container hero-content">
+            <span class="hero-eyebrow">Tara Bhuvaneswari Kalva · Data Analyst</span>
+            <h1 class="hero-title">Tara</h1>
+            <p class="hero-summary">
+              Data Analyst with experience in statistical modeling and predictive analytics.
+              Skilled in Python, R, SQL, Tableau, and Power BI, building end-to-end regression,
+              classification, and AI-assisted triage workflows that turn complex operational data
+              into clear, actionable decisions.
+            </p>
+            <div class="hero-actions">
+              <a href="#projects" class="btn view-work-pill">
+                <span>View Work</span>
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14m-6-6 6 6-6 6"/>
+                </svg>
+              </a>
+              <a href="#contact" class="btn btn-glass">Get in Touch</a>
+            </div>
+
+            <div class="hero-metrics">
+              <div class="glass-card metric-pill reveal-on-scroll">
+                <div class="metric-value">100k+</div>
+                <div class="metric-label">Tickets Modeled in TicketLens</div>
+              </div>
+              <div class="glass-card metric-pill reveal-on-scroll">
+                <div class="metric-value">0.88 AUC</div>
+                <div class="metric-label">Loan Approval Risk Classifier</div>
+              </div>
+              <div class="glass-card metric-pill reveal-on-scroll">
+                <div class="metric-value">Accenture</div>
+                <div class="metric-label">Data Analyst Experience</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             2. ABOUT
+             ================================================================ -->
+        <section id="about" class="section-block">
+          <div class="section-container">
+            <div class="section-head reveal-on-scroll">
+              <span class="section-kicker">About</span>
+              <h2 class="section-title">Translating statistical rigor into clarity.</h2>
+              <p class="section-lead">
+                Combining applied statistics, clean data modeling, and modern AI workflows to solve real business and product problems.
+              </p>
+            </div>
+
+            <div class="about-grid">
+              <div class="glass-card about-prose reveal-on-scroll">
+                <p>
+                  I am <strong>Tara Bhuvaneswari Kalva</strong>, a Data Analyst based in Worcester, Massachusetts, currently pursuing my Master of Science in Information Technology at Clark University.
+                </p>
+                <p>
+                  Previously at <strong>Accenture India</strong>, I prepared R programming curricula and guided hands-on statistical modeling sessions covering probability, regression, and applied analytical methods. Across my academic and personal work, I build reproducible pipelines—from SQL warehouse modeling and Scikit-learn cross-validation to interactive Tableau dashboards and full-stack AI ticket triage systems.
+                </p>
+                <p>
+                  My goal is simple: bridge the gap between raw operational datasets and confident, human-readable decisions.
+                </p>
+              </div>
+
+              <div class="about-highlights">
+                <div class="glass-card highlight-card reveal-on-scroll">
+                  <div class="highlight-label">Core Focus</div>
+                  <div class="highlight-value">Predictive Modeling &amp; BI Analytics</div>
+                  <div class="highlight-sub">Regression, classification, hypothesis testing &amp; executive dashboards</div>
+                </div>
+                <div class="glass-card highlight-card reveal-on-scroll">
+                  <div class="highlight-label">Current Degree</div>
+                  <div class="highlight-value">M.S. in Information Technology</div>
+                  <div class="highlight-sub">Clark University · Worcester, MA (Jan 2025 – Dec 2026)</div>
+                </div>
+                <div class="glass-card highlight-card reveal-on-scroll">
+                  <div class="highlight-label">Primary Stack</div>
+                  <div class="highlight-value">Python · R · SQL · Tableau · Power BI</div>
+                  <div class="highlight-sub">Backed by PostgreSQL, Snowflake, SQLite &amp; Scikit-learn</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             3. SKILLS
+             ================================================================ -->
+        <section id="skills" class="section-block">
+          <div class="section-container">
+            <div class="section-head reveal-on-scroll">
+              <span class="section-kicker">Skills</span>
+              <h2 class="section-title">Analytical depth across the full data lifecycle.</h2>
+              <p class="section-lead">
+                From preprocessing and warehouse schema design to statistical modeling, visualization, and observability tooling.
+              </p>
+            </div>
+
+            <div class="skills-grid">
+              <article class="glass-card glass-card--interactive skill-card reveal-on-scroll">
+                <div class="skill-card-head">
+                  <div class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                  </div>
+                  <h3>Programming &amp; Analytics</h3>
+                </div>
+                <ul class="chip-list">
+                  <li class="chip">Python</li>
+                  <li class="chip">R</li>
+                  <li class="chip">SQL</li>
+                  <li class="chip">Excel</li>
+                  <li class="chip">Data Preprocessing</li>
+                  <li class="chip">Exploratory Data Analysis (EDA)</li>
+                </ul>
+              </article>
+
+              <article class="glass-card glass-card--interactive skill-card reveal-on-scroll">
+                <div class="skill-card-head">
+                  <div class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>
+                    </svg>
+                  </div>
+                  <h3>Statistics &amp; Machine Learning</h3>
+                </div>
+                <ul class="chip-list">
+                  <li class="chip">Regression</li>
+                  <li class="chip">Hypothesis Testing</li>
+                  <li class="chip">Classification</li>
+                  <li class="chip">Clustering</li>
+                  <li class="chip">Cross-Validation</li>
+                  <li class="chip">Model Evaluation</li>
+                  <li class="chip">Scikit-learn</li>
+                </ul>
+              </article>
+
+              <article class="glass-card glass-card--interactive skill-card reveal-on-scroll">
+                <div class="skill-card-head">
+                  <div class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/>
+                    </svg>
+                  </div>
+                  <h3>Data &amp; Databases</h3>
+                </div>
+                <ul class="chip-list">
+                  <li class="chip">PostgreSQL</li>
+                  <li class="chip">MySQL</li>
+                  <li class="chip">SQLite</li>
+                  <li class="chip">Snowflake</li>
+                  <li class="chip">Fact &amp; Dimension Modeling</li>
+                  <li class="chip">Data Validation</li>
+                </ul>
+              </article>
+
+              <article class="glass-card glass-card--interactive skill-card reveal-on-scroll">
+                <div class="skill-card-head">
+                  <div class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/>
+                    </svg>
+                  </div>
+                  <h3>Visualization &amp; Tools</h3>
+                </div>
+                <ul class="chip-list">
+                  <li class="chip">Tableau</li>
+                  <li class="chip">Power BI</li>
+                  <li class="chip">Docker</li>
+                  <li class="chip">Datadog (Basic)</li>
+                  <li class="chip">Dynatrace (Basic)</li>
+                  <li class="chip">Splunk (Basic)</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             4. PROJECTS (Click opens Case Study Explanation Page FIRST)
+             ================================================================ -->
+        <section id="projects" class="section-block">
+          <div class="section-container">
+            <div class="section-head reveal-on-scroll">
+              <span class="section-kicker">Projects</span>
+              <h2 class="section-title">Selected case studies &amp; analytics builds.</h2>
+              <p class="section-lead">
+                Select any project to open its full architectural breakdown, methodology, and live deployment links.
+              </p>
+            </div>
+
+            <div class="projects-grid">
+              <!-- Featured Project: TicketLens -->
+              <article class="glass-card glass-card--interactive project-card project-card--featured reveal-on-scroll">
+                <div style="display: grid; gap: 0.9rem;">
+                  <div class="project-meta-row">
+                    <span class="project-badge">Featured AI System</span>
+                    <span class="project-badge">Full-Stack Analytics</span>
+                  </div>
+                  <h3 class="project-title" style="view-transition-name: title-ticketlens;">
+                    <a href="projects/ticketlens.html" class="project-title-link">
+                      TicketLens — Automated AI Ticket Triage
+                    </a>
+                  </h3>
+                  <p class="project-desc">
+                    An intelligent SaaS support ticket triage and pattern detection platform built on 100k historical tickets. Routes incoming issues with Gemini/OpenAI or rule-based fallback, enforces a human-in-the-loop Review Queue below 0.7 confidence, detects category volume spikes via scheduled cron jobs, and forecasts the next probable ticket.
+                  </p>
+                  <ul class="chip-list">
+                    <li class="chip">Node.js / Express</li>
+                    <li class="chip">React &amp; Chart.js</li>
+                    <li class="chip">SQLite (100k rows)</li>
+                    <li class="chip">Gemini AI + Fallback</li>
+                  </ul>
+                  <div class="project-footer">
+                    <span class="project-cta">
+                      Open Project Explanation
+                      <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14m-6-6 6 6-6 6"/>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="project-preview-panel" aria-hidden="true">
+                  <div class="preview-stat-grid">
+                    <div class="preview-stat">
+                      <strong>100,000</strong>
+                      <span>Support Tickets Indexed</span>
+                    </div>
+                    <div class="preview-stat">
+                      <strong>0.7 Gate</strong>
+                      <span>Human Review Threshold</span>
+                    </div>
+                    <div class="preview-stat">
+                      <strong>15 Min</strong>
+                      <span>Cron Risk Detection</span>
+                    </div>
+                    <div class="preview-stat">
+                      <strong>8 × 8</strong>
+                      <span>Categories &amp; Teams</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 2: Instagram Likes Prediction -->
+              <article class="glass-card glass-card--interactive project-card reveal-on-scroll">
+                <div class="project-meta-row">
+                  <span class="project-badge">Machine Learning</span>
+                  <span class="project-badge">Python · Scikit-learn</span>
+                </div>
+                <h3 class="project-title" style="view-transition-name: title-instagram;">
+                  <a href="projects/instagram-likes.html" class="project-title-link">
+                    Instagram Likes Prediction Using Regression
+                  </a>
+                </h3>
+                <p class="project-desc">
+                  Scikit-learn regression pipeline predicting post engagement from temporal and interaction features using target log transformation, 10-fold cross-validation across five models, and GridSearchCV hyperparameter tuning.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">Scikit-learn</li>
+                  <li class="chip">10-Fold CV</li>
+                  <li class="chip">GridSearchCV</li>
+                </ul>
+                <div class="project-footer">
+                  <span class="project-cta">
+                    Open Project Explanation
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14m-6-6 6 6-6 6"/>
+                    </svg>
+                  </span>
+                </div>
+              </article>
+
+              <!-- Project 3: Loan Approval Prediction -->
+              <article class="glass-card glass-card--interactive project-card reveal-on-scroll">
+                <div class="project-meta-row">
+                  <span class="project-badge">Statistical Modeling</span>
+                  <span class="project-badge">R · Logistic Regression</span>
+                </div>
+                <h3 class="project-title" style="view-transition-name: title-loan;">
+                  <a href="projects/loan-approval.html" class="project-title-link">
+                    Loan Approval Prediction Using Logistic Regression
+                  </a>
+                </h3>
+                <p class="project-desc">
+                  Explainable credit risk classifier built in R achieving 82% validation accuracy and 0.88 ROC-AUC, using exploratory analysis, model coefficients, and odds ratios to surface key approval drivers.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">R Programming</li>
+                  <li class="chip">82% Accuracy</li>
+                  <li class="chip">0.88 ROC-AUC</li>
+                </ul>
+                <div class="project-footer">
+                  <span class="project-cta">
+                    Open Project Explanation
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14m-6-6 6 6-6 6"/>
+                    </svg>
+                  </span>
+                </div>
+              </article>
+
+              <!-- Project 4: Global Superstore -->
+              <article class="glass-card glass-card--interactive project-card reveal-on-scroll" style="grid-column: 1 / -1;">
+                <div class="project-meta-row">
+                  <span class="project-badge">Business Intelligence</span>
+                  <span class="project-badge">Tableau · Retail Analytics</span>
+                </div>
+                <h3 class="project-title" style="view-transition-name: title-superstore;">
+                  <a href="projects/global-superstore.html" class="project-title-link">
+                    Store Performance Analysis — Global Superstore
+                  </a>
+                </h3>
+                <p class="project-desc">
+                  Evaluated 9,994 transactions across 21 features in Tableau to track sales, profit margins, and discount sensitivity—pinpointing loss-generating regions and product categories with concrete pricing recommendations.
+                </p>
+                <ul class="chip-list">
+                  <li class="chip">Tableau</li>
+                  <li class="chip">9,994 Transactions</li>
+                  <li class="chip">Profitability Analysis</li>
+                </ul>
+                <div class="project-footer">
+                  <span class="project-cta">
+                    Open Project Explanation
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14m-6-6 6 6-6 6"/>
+                    </svg>
+                  </span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             5. EXPERIENCE
+             ================================================================ -->
+        <section id="experience" class="section-block">
+          <div class="section-container">
+            <div class="section-head reveal-on-scroll">
+              <span class="section-kicker">Experience</span>
+              <h2 class="section-title">Applied industry practice &amp; technical enablement.</h2>
+            </div>
+
+            <div class="timeline">
+              <article class="glass-card glass-card--interactive timeline-card reveal-on-scroll">
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <div class="timeline-top">
+                  <h3 class="timeline-role">Data Analyst</h3>
+                  <span class="timeline-period">Sept 2023 – Dec 2024</span>
+                </div>
+                <p class="timeline-org">Accenture India · Karnataka, India</p>
+                <ul class="timeline-list">
+                  <li>Prepared structured R programming materials and supported hands-on sessions focused on statistical analysis and applied modeling.</li>
+                  <li>Guided participants through exercises involving probability, regression, and statistical concepts using R.</li>
+                  <li>Supported the delivery of laboratory-style activities and explained analytical methods through practical, real-world examples.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             6. EDUCATION
+             ================================================================ -->
+        <section id="education" class="section-block">
+          <div class="section-container">
+            <div class="section-head reveal-on-scroll">
+              <span class="section-kicker">Education</span>
+              <h2 class="section-title">Academic foundation in IT &amp; engineering.</h2>
+            </div>
+
+            <div class="edu-grid">
+              <article class="glass-card glass-card--interactive edu-card reveal-on-scroll">
+                <span class="timeline-period" style="width: fit-content;">Jan 2025 – Dec 2026</span>
+                <h3 class="timeline-role">Master of Science in Information Technology</h3>
+                <p class="timeline-org" style="margin-bottom: 0;">Clark University · Worcester, MA</p>
+                <p class="project-desc">
+                  Focusing on data analytics, applied machine learning, database architecture, and intelligent enterprise systems.
+                </p>
+              </article>
+
+              <article class="glass-card glass-card--interactive edu-card reveal-on-scroll">
+                <span class="timeline-period" style="width: fit-content;">Aug 2021 – May 2024</span>
+                <h3 class="timeline-role">Bachelor's in Electronics &amp; Communication Engineering</h3>
+                <p class="timeline-org" style="margin-bottom: 0;">Rajiv Gandhi Memorial College of Engineering and Technology · Andhra Pradesh, India</p>
+                <p class="project-desc">
+                  Built quantitative problem-solving foundations in signal processing, programming, and applied engineering mathematics.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             7. CONTACT
+             ================================================================ -->
+        <section id="contact" class="section-block">
+          <div class="section-container">
+            <div class="section-head reveal-on-scroll">
+              <span class="section-kicker">Contact</span>
+              <h2 class="section-title">Let's build data-driven products together.</h2>
+              <p class="section-lead">
+                Open to Data Analyst, Business Intelligence, and Applied ML opportunities across the US.
+              </p>
+            </div>
+
+            <div class="contact-grid">
+              <div class="glass-card contact-details reveal-on-scroll">
+                <ul class="contact-list">
+                  <li class="contact-item">
+                    <div>
+                      <div class="contact-item-label">Email</div>
+                      <a href="mailto:kalvatara554@gmail.com" class="contact-item-value">kalvatara554@gmail.com</a>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <div>
+                      <div class="contact-item-label">Phone</div>
+                      <a href="tel:+17742531385" class="contact-item-value">+1 (774)-253-1385</a>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <div>
+                      <div class="contact-item-label">Location</div>
+                      <span class="contact-item-value">Worcester, MA</span>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <div>
+                      <div class="contact-item-label">GitHub</div>
+                      <a href="https://github.com/TaraKalva" target="_blank" rel="noopener noreferrer" class="contact-item-value">github.com/TaraKalva</a>
+                    </div>
+                  </li>
+                </ul>
+
+                <button type="button" class="btn btn-glass" data-copy-email>
+                  <span data-copy-label>Copy Email Address</span>
+                </button>
+              </div>
+
+              <form id="contact-form" class="glass-card contact-form reveal-on-scroll" novalidate>
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="contact-name">Name</label>
+                    <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="contact-email">Email</label>
+                    <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="contact-message">Message</label>
+                  <textarea id="contact-message" name="message" rows="4" placeholder="Tell me about the role, dataset, or project..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+                <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="section-container footer-inner">
+          <span>© 2026 Tara Bhuvaneswari Kalva</span>
+          <span>Worcester, MA · Data Analytics &amp; Applied Machine Learning</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem('color-scheme') ?? 'light dark';
+    } catch {}
+  </script>
+  <title>Instagram Likes Prediction | Tara Kalva</title>
+  <meta name="description" content="Case study for Instagram Likes Prediction Using Regression Techniques: Scikit-learn preprocessing, log target transformation, 10-fold cross-validation, and GridSearchCV.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <div class="ambient-canvas" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--1"></div>
+    <div class="ambient-orb ambient-orb--2"></div>
+    <div class="ambient-orb ambient-orb--3"></div>
+  </div>
+
+  <div class="case-page">
+    <header class="case-topbar">
+      <a href="../index.html#projects" class="back-link">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5m6 6-6-6 6-6"/>
+        </svg>
+        <span>Back to Projects</span>
+      </a>
+
+      <button type="button" class="icon-square-btn theme-toggle" data-theme-toggle>
+        <span class="theme-state theme-state--to-dark">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/>
+          </svg>
+          <span class="visually-hidden">Switch to dark theme</span>
+        </span>
+        <span class="theme-state theme-state--to-light">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span class="visually-hidden">Switch to light theme</span>
+        </span>
+      </button>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <article class="glass-card case-hero">
+        <div class="project-meta-row">
+          <span class="project-badge">Case Study</span>
+          <span class="project-badge">Predictive Modeling</span>
+          <span class="project-badge">Python · Scikit-learn</span>
+        </div>
+
+        <h1 class="case-title" style="view-transition-name: title-instagram;">
+          Instagram Likes Prediction Using Regression Techniques
+        </h1>
+
+        <p class="case-subtitle">
+          A structured Scikit-learn regression pipeline designed to forecast social post engagement from temporal and interaction-based signals while handling heavy right-skew in like counts.
+        </p>
+
+        <div class="case-actions">
+          <a href="https://github.com/TaraKalva" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>View GitHub Profile</span>
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7M7 7h10v10"/>
+            </svg>
+          </a>
+          <a href="ticketlens.html" class="btn btn-glass">Explore TicketLens Flagship</a>
+        </div>
+
+        <dl class="case-meta-bar">
+          <div class="case-meta-item">
+            <dt>Language</dt>
+            <dd>Python (Scikit-learn)</dd>
+          </div>
+          <div class="case-meta-item">
+            <dt>Validation</dt>
+            <dd>10-Fold Cross-Validation</dd>
+          </div>
+          <div class="case-meta-item">
+            <dt>Optimization</dt>
+            <dd>GridSearchCV Tuning</dd>
+          </div>
+          <div class="case-meta-item">
+            <dt>Primary Metric</dt>
+            <dd>Mean Squared Error (MSE)</dd>
+          </div>
+        </dl>
+      </article>
+
+      <section class="glass-card case-section reveal-on-scroll">
+        <h2>Project Overview</h2>
+        <p>
+          Social engagement distributions are inherently skewed—a handful of viral posts create extreme outliers that distort standard linear loss functions. This project constructs an end-to-end Scikit-learn pipeline to predict Instagram post likes cleanly and reproducibly.
+        </p>
+      </section>
+
+      <section class="glass-card case-section reveal-on-scroll">
+        <h2>Modeling Workflow</h2>
+        <div class="architecture-flow">
+          <div class="arch-node">
+            <span class="arch-step">Stage 01</span>
+            <h3>Feature Engineering</h3>
+            <p>Extracted temporal publishing attributes and interaction-based engagement signals.</p>
+          </div>
+          <div class="arch-node">
+            <span class="arch-step">Stage 02</span>
+            <h3>Preprocessing</h3>
+            <p>Cleaned missing values, encoded categorical variables, and stabilized variance via target log transformation.</p>
+          </div>
+          <div class="arch-node">
+            <span class="arch-step">Stage 03</span>
+            <h3>Model Benchmarking</h3>
+            <p>Evaluated five candidate regression models uniformly using 10-fold cross-validation and MSE.</p>
+          </div>
+          <div class="arch-node">
+            <span class="arch-step">Stage 04</span>
+            <h3>Hyperparameter Tuning</h3>
+            <p>Applied GridSearchCV to select optimal regularization and estimator parameters for final generalization.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="glass-card case-section reveal-on-scroll">
+        <h2>Key Analytical Takeaways</h2>
+        <ul>
+          <li><strong>Target Log Transformation:</strong> Compressing long-tail like counts stabilized residual variance and improved regression fit stability across folds.</li>
+          <li><strong>Leak-Free Pipeline Encapsulation:</strong> Wrapping encoding and transformations inside Scikit-learn pipelines ensured 10-fold cross-validation scores remained strictly leak-free.</li>
+          <li><strong>Systematic Model Selection:</strong> Comparing five regression families side-by-side via MSE and tuning with GridSearchCV provided a data-backed choice rather than relying on a single baseline estimator.</li>
+        </ul>
+      </section>
+
+      <nav class="case-nav-footer" aria-label="Project navigation">
+        <a href="ticketlens.html" class="back-link">← Previous: TicketLens</a>
+        <a href="loan-approval.html" class="back-link">Next: Loan Approval Prediction →</a>
+      </nav>
+    </main>
+  </div>
+</body>
+</html>

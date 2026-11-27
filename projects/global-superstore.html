@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem('color-scheme') ?? 'light dark';
+    } catch {}
+  </script>
+  <title>Global Superstore Performance Analysis | Tara Kalva</title>
+  <meta name="description" content="Case study for Store Performance Analysis – Global Superstore: 9,994 transactions, 21 features, and Tableau dashboards uncovering margin erosion and pricing opportunities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <div class="ambient-canvas" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--1"></div>
+    <div class="ambient-orb ambient-orb--2"></div>
+    <div class="ambient-orb ambient-orb--3"></div>
+  </div>
+
+  <div class="case-page">
+    <header class="case-topbar">
+      <a href="../index.html#projects" class="back-link">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5m6 6-6-6 6-6"/>
+        </svg>
+        <span>Back to Projects</span>
+      </a>
+
+      <button type="button" class="icon-square-btn theme-toggle" data-theme-toggle>
+        <span class="theme-state theme-state--to-dark">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/>
+          </svg>
+          <span class="visually-hidden">Switch to dark theme</span>
+        </span>
+        <span class="theme-state theme-state--to-light">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span class="visually-hidden">Switch to light theme</span>
+        </span>
+      </button>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <article class="glass-card case-hero">
+        <div class="project-meta-row">
+          <span class="project-badge">Case Study</span>
+          <span class="project-badge">Business Intelligence</span>
+          <span class="project-badge">Tableau · Retail Operations</span>
+        </div>
+
+        <h1 class="case-title" style="view-transition-name: title-superstore;">
+          Store Performance Analysis — Global Superstore
+        </h1>
+
+        <p class="case-subtitle">
+          A comprehensive Tableau profitability and discount-sensitivity analysis across 9,994 retail transactions and 21 operational dimensions to isolate margin leakage and guide pricing strategy.
+        </p>
+
+        <div class="case-actions">
+          <a href="https://github.com/TaraKalva" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>View GitHub Profile</span>
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7M7 7h10v10"/>
+            </svg>
+          </a>
+          <a href="ticketlens.html" class="btn btn-glass">Explore TicketLens Flagship</a>
+        </div>
+
+        <dl class="case-meta-bar">
+          <div class="case-meta-item">
+            <dt>BI Platform</dt>
+            <dd>Tableau</dd>
+          </div>
+          <div class="case-meta-item">
+            <dt>Transactions</dt>
+            <dd>9,994 Records</dd>
+          </div>
+          <div class="case-meta-item">
+            <dt>Dimensions</dt>
+            <dd>21 Features</dd>
+          </div>
+          <div class="case-meta-item">
+            <dt>Focus Areas</dt>
+            <dd>Sales, Margin &amp; Discounts</dd>
+          </div>
+        </dl>
+      </article>
+
+      <section class="glass-card case-section reveal-on-scroll">
+        <h2>Business Objective</h2>
+        <p>
+          High top-line sales often mask unprofitable discounting and regional fulfillment drag. This project examines 9,994 Global Superstore orders across 21 features to separate revenue volume from true net profitability.
+        </p>
+      </section>
+
+      <section class="glass-card case-section reveal-on-scroll">
+        <h2>Dashboard &amp; Investigation Breakdown</h2>
+        <div class="architecture-flow">
+          <div class="arch-node">
+            <span class="arch-step">View 01</span>
+            <h3>Sales &amp; Margin KPIs</h3>
+            <p>Tracked aggregate revenue, net profit, and profit margin ratios across customer segments.</p>
+          </div>
+          <div class="arch-node">
+            <span class="arch-step">View 02</span>
+            <h3>Discount Elasticity</h3>
+            <p>Evaluated how steep promotional discounts eroded unit margins past break-even thresholds.</p>
+          </div>
+          <div class="arch-node">
+            <span class="arch-step">View 03</span>
+            <h3>Regional Diagnostics</h3>
+            <p>Mapped geographic markets to pinpoint underperforming, loss-generating regions.</p>
+          </div>
+          <div class="arch-node">
+            <span class="arch-step">View 04</span>
+            <h3>Category Action Plan</h3>
+            <p>Delivered targeted pricing and product-mix recommendations to restore sustainable profitability.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="glass-card case-section reveal-on-scroll">
+        <h2>Strategic Recommendations</h2>
+        <ul>
+          <li><strong>Cap Unprofitable Discount Tiers:</strong> Align promotional thresholds with category margin cushions so volume gains do not produce negative net profit.</li>
+          <li><strong>Rebalance Regional Product Mix:</strong> Prioritize high-margin sub-categories in lagging territories while auditing fulfillment and pricing structure for loss-making SKUs.</li>
+        </ul>
+      </section>
+
+      <nav class="case-nav-footer" aria-label="Project navigation">
+        <a href="loan-approval.html" class="back-link">← Previous: Loan Approval</a>
+        <a href="ticketlens.html" class="back-link">Next: TicketLens Flagship →</a>
+      </nav>
+    </main>
+  </div>
+</body>
+</html>

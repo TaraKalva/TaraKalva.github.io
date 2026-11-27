@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem('color-scheme') ?? 'light dark';
+    } catch {}
+  </script>
+  <title>TicketLens — Automated AI Ticket Triage | Tara Kalva</title>
+  <meta name="description" content="Project explanation and architecture case study for TicketLens: an AI-powered support ticket triage, human-in-the-loop review, and proactive trend forecasting platform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../app.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <div class="ambient-canvas" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--1"></div>
+    <div class="ambient-orb ambient-orb--2"></div>
+    <div class="ambient-orb ambient-orb--3"></div>
+  </div>
+
+  <div class="case-page">
+    <header class="case-topbar">
+      <a href="../index.html#projects" class="back-link">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5m6 6-6-6 6-6"/>
+        </svg>
+        <span>Back to Projects</span>
+      </a>
+
+      <button type="button" class="icon-square-btn theme-toggle" data-theme-toggle>
+        <span class="theme-state theme-state--to-dark">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/>
+          </svg>
+          <span class="visually-hidden">Switch to dark theme</span>
+        </span>
+        <span class="theme-state theme-state--to-light">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span class="visually-hidden">Switch to light theme</span>
+        </span>
+      </button>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <!-- Project Hero & Direct Links to Live Deployment + GitHub -->
+      <article class="glass-card case-hero">
+        <div class="project-meta-row">
+          <span class="project-badge">Case Study</span>
+          <span class="project-badge">AI Operations &amp; Triage</span>
+          <span class="project-badge">Full-Stack Application</span>
+        </div>
+
+        <h1 class="case-title" style="view-transition-name: title-ticketlens;">
+          TicketLens — Automated AI Ticket Triage &amp; Pattern Detection
+        </h1>
+
+        <p class="case-subtitle">
+          An end-to-end SaaS support triage system that classifies and routes incoming tickets with LLMs and rule-based fallbacks, escalates low-confidence predictions to a human review queue, flags surging incident categories, and forecasts the next probable support ticket.
+        </p>
+
+        <div class="case-actions">
+          <a href="https://ticket-lens.onrender.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>Launch Live App</span>
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7M7 7h10v10"/>
+            </svg>
+          </a>
+          <a href="https://github.com/TaraKalva/TicketTriage" target="_blank" rel="noopener noreferrer" class="btn btn-glass">
+            <span>View Source on GitHub</span>
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7M7 7h10v10"/>
+            </svg>
+          </a>
+        </div>
+
+        <dl class="case-meta-bar">
+          <div class="case-meta-item">
+            <dt>Author</dt>
+            <dd>Tara Bhuvaneswari Kalva</dd>
+          </div>
+          <div class="case-meta-item">
+            <dt>Dataset Scale</dt>
+            <dd>100,000 Support Tickets</dd>
+          </div>
+          <div class="case-meta-item">
+            <dt>Confidence Gate</dt>
+            <dd>0.70 Threshold (HITL)</dd>
+          </div>
+          <div class="case-meta-item">
+            <dt>Core Stack</dt>
+            <dd>React, Node.js, SQLite, Gemini</dd>
+          </div>
+        </dl>
+      </article>
+
+      <!-- Problem & Motivation -->
+      <section class="glass-card case-section reveal-on-scroll">
+        <h2>Executive Summary &amp; Problem Statement</h2>
+        <p>
+          High-volume support teams face two compounding bottlenecks: manual ticket routing delays time-to-resolution, while purely automated classifiers silently misroute ambiguous incidents. At the same time, reactive dashboards rarely warn operations leads before a specific category spikes into a broader outage.
+        </p>
+        <p>
+          <strong>TicketLens</strong> solves both challenges in a unified operational workflow. Every incoming ticket is scored with structured classification, confidence calibration, and one-line reasoning. High-confidence tickets route immediately, uncertain tickets pause in a human-in-the-loop <strong>Review Queue</strong>, and background analytics continuously scan rolling 7-day windows to surface emerging operational risk.
+        </p>
+      </section>
+
+      <!-- Architecture Pipeline -->
+      <section class="glass-card case-section reveal-on-scroll">
+        <h2>System Architecture &amp; Triage Pipeline</h2>
+        <p>
+          Historical records and live submissions share a unified SQLite schema seeded automatically from 100,000 synthetic IT support tickets (`better-sqlite3`), enabling instant analytics alongside real-time AI inference.
+        </p>
+
+        <div class="architecture-flow">
+          <div class="arch-node">
+            <span class="arch-step">Step 01</span>
+            <h3>Ticket Ingestion</h3>
+            <p>Users submit ticket descriptions via the React UI; records enter the Express API pipeline.</p>
+          </div>
+          <div class="arch-node">
+            <span class="arch-step">Step 02</span>
+            <h3>AI Triage Engine</h3>
+            <p>Gemini or OpenAI classifies category, severity, team, confidence score, and reasoning—with rule-based fallback if no key is set.</p>
+          </div>
+          <div class="arch-node">
+            <span class="arch-step">Step 03</span>
+            <h3>Confidence Gate</h3>
+            <p>Predictions below <code>0.7</code> trigger <code>needsReview</code>, routing to the human Review Queue for confirmation or correction.</p>
+          </div>
+          <div class="arch-node">
+            <span class="arch-step">Step 04</span>
+            <h3>Cron Risk &amp; Forecast</h3>
+            <p>Every 15 minutes, <code>node-cron</code> flags ≥25% 7-day volume surges and generates a grounded next-ticket forecast.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Capabilities -->
+      <section class="glass-card case-section reveal-on-scroll">
+        <h2>Key Capabilities &amp; Technical Design</h2>
+        <ul>
+          <li><strong>Resilient Dual-Mode AI Inference:</strong> Auto-detects Google Gemini or OpenAI API keys and seamlessly falls back to a deterministic keyword-rule classifier so end-to-end triage works reliably even without external API keys.</li>
+          <li><strong>Human-in-the-Loop Governance:</strong> Rather than blindly trusting low-certainty outputs, tickets with confidence under <code>CONFIDENCE_THRESHOLD</code> (0.7) enter the Review Queue where analysts confirm or override assignments.</li>
+          <li><strong>Proactive Trend Risk Detection:</strong> Compares each category's last 7 days against the prior 7 days (with a minimum volume floor to suppress low-traffic noise), flagging <code>rising</code> categories with plain-language recommendations.</li>
+          <li><strong>Grounded Next-Ticket Forecasting:</strong> Feeds live volume trends and real recent ticket samples from the highest-signal category into the model to forecast probable incoming issues with rationale.</li>
+          <li><strong>100k-Scale Paginated Explorer:</strong> Supports server-side pagination, full-text search, and filtering across status, category, team, and review state via <code>GET /api/tickets</code>.</li>
+        </ul>
+      </section>
+
+      <!-- Taxonomy Table -->
+      <section class="glass-card case-section reveal-on-scroll">
+        <h2>Unified Ticket Taxonomy</h2>
+        <p>Historical CSV imports and newly triaged submissions normalize into eight categories, four severity tiers, and eight routing teams:</p>
+        <div style="overflow-x: auto;">
+          <table class="taxonomy-table">
+            <caption>TicketLens classification schema</caption>
+            <thead>
+              <tr>
+                <th scope="col">Dimension</th>
+                <th scope="col">Supported Labels</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Categories (8)</th>
+                <td>Account Access, Bug, Performance, Billing Problem, Security Concern, Feature Request, How-To Question, Other</td>
+              </tr>
+              <tr>
+                <th scope="row">Severity Levels (4)</th>
+                <td>Low, Medium, High, Critical</td>
+              </tr>
+              <tr>
+                <th scope="row">Routing Teams (8)</th>
+                <td>Mobile App, Identity &amp; Access, Platform/API, Billing, Data, Analytics, Notifications, Product</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Technology Stack & Bottom CTA -->
+      <section class="glass-card case-section reveal-on-scroll">
+        <h2>Technology Stack &amp; Deployment</h2>
+        <ul>
+          <li><strong>Frontend:</strong> React (Vite), Tailwind CSS, Chart.js (Dashboard, SubmitTicket, ReviewQueue, AllTickets).</li>
+          <li><strong>Backend &amp; Scheduling:</strong> Node.js, Express, SQLite via <code>better-sqlite3</code>, <code>node-cron</code> background telemetry.</li>
+          <li><strong>Hosting:</strong> Configured via Render Blueprint (<code>render.yaml</code>) with automatic database seeding on startup.</li>
+        </ul>
+
+        <div class="case-actions" style="padding-top: 0.75rem;">
+          <a href="https://ticket-lens.onrender.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>Open TicketLens Live</span>
+          </a>
+          <a href="https://github.com/TaraKalva/TicketTriage" target="_blank" rel="noopener noreferrer" class="btn btn-glass">
+            <span>Inspect TicketTriage Repo</span>
+          </a>
+        </div>
+      </section>
+
+      <nav class="case-nav-footer" aria-label="Project navigation">
+        <a href="../index.html#projects" class="back-link">← All Projects</a>
+        <a href="instagram-likes.html" class="back-link">Next: Instagram Likes Prediction →</a>
+      </nav>
+    </main>
+  </div>
+</body>
+</html>
